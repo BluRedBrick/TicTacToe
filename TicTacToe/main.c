@@ -27,15 +27,24 @@ int main(void)
 
 				printf("Player %i, choose a collumn: ", i);
 
-				scanf_s("%i", &selection[1]);
+				scanf_s("%d", &selection[1]);
 				selection[1] -= 1;
-				if (matrix[selection[0]][selection[1]] == 0) {
-					matrix[selection[0]][selection[1]] = i;
-					break;
+
+				if (selection[0] >= 0 && selection[0] <= 2 && selection[1] >= 0 && selection[1] <= 2) {
+					if (matrix[selection[0]][selection[1]] == 0) {
+						matrix[selection[0]][selection[1]] = i;
+						break;
+					}
+					else {
+						printf("\nThis cell is taken. Choose a different one.\n");
+					}
 				}
 				else {
-					printf("\nThis cell is taken. Choose a different one.\n");
+					printf("\nThere are only 3 rows and collumns.\n");
 				}
+
+
+				
 			}
 			
 			
